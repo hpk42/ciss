@@ -106,4 +106,3 @@ class LineMatcher:
                     raise AssertionError("expected line not found: %r" % line)
         extralines.extend(lines1)
         return extralines 
-

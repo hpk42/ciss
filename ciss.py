@@ -9,7 +9,7 @@ import re, fnmatch
 import py
 from optparse import OptionParser
 
-__version__ = "0.1"
+__version__ = '0.2.dev1'
 
 class Issue:
     def __init__(self, basedir):
