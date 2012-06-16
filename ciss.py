@@ -1,8 +1,8 @@
 """
-ciss issue tracker. 
+ciss issue tracker.
 http://codespeak.net/ciss
 
-(c) 2009 Holger Krekel, holger at merlinux eu
+(c) 2012 Holger Krekel, holger at merlinux eu
 
 """
 import re, fnmatch
@@ -38,7 +38,7 @@ class Issue:
         pattern = self.param.get("path")
         if path:
             if not pattern:
-                return False 
+                return False
             pattern = pattern.strip().replace("/", path.sep)
             cand = path.relto(self.basedir)
             if not pattern.startswith(cand):
@@ -109,7 +109,7 @@ def main():
         help="show more verbose info")
     parser.add_option("-t", "--tags", action="store", dest="tags",
         help="show only issues carrying all comma-separated tags")
-    #parser.add_option("-p", action="store", dest="path", 
+    #parser.add_option("-p", action="store", dest="path",
     #    help="only show issues matching the given path glob-pattern")
     parser.add_option("--version", action="store_true", dest="version")
     options, args = parser.parse_args()
@@ -132,7 +132,7 @@ def main():
     for i, issue in enumerate(parseissues(p)):
         if not issue.match(path=match, tags=match_tags):
            unmatched.append(issue)
-        else:  
+        else:
             line = "[%d] " % i
             indent = len(line)
             line += issue.title
@@ -150,6 +150,6 @@ def main():
                     tw.line(" " * indent + line)
     if unmatched:
         tw.line("%d issues did not match" %(len(unmatched)))
-           
+
 if __name__ == '__main__':
     main()
