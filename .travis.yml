@@ -3,7 +3,6 @@ python:
   - "2.6"
   - "2.7"
 # command to install dependencies
-install: pip install pytest --use-mirrors
-    python setup.py install
+install: pip install . pytest --use-mirrors
 # command to run tests
 script: py.test
