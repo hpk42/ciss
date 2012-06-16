@@ -1,0 +1,7 @@
+graft doc
+include *.py
+include *.py
+include README
+include CHANGELOG.txt
+include ISSUES.txt
+prune doc/_build

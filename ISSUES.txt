@@ -1,0 +1,79 @@
+Create a Web app 
+--------------------------------
+tags: wish
+
+Currently, the only interface to ISSUES.txt is 
+your favourite text editor.  A small web app 
+that can be fired up for editing/submitting 
+issues (on App Engine maybe?) would be super-cool.
+
+Import issues from Google code
+-----------------------------------
+path: ciss.py   
+tags: feature 
+
+Make ciss import issues from a Google code issue tracker.
+Even cooler would be a round trip, of course :)
+
+"ciss [0]" restrict to a certain issue
+---------------------------------------------------
+tags: feature
+path: ciss.py
+
+When typing `ciss [0]` only the specified issue
+should be displayed.
+
+more compatibility/export to ReST
+--------------------------------------
+tags: feature 0.2
+path: ciss.py
+
+consider field-lists for metadata.  E.g.::
+
+    :tags feature
+    :path ciss.py
+
+which would make rendering nicer.  OTOH
+ISSUES.txt should generally not be 
+bound by ReST format but we should
+rather export to ReST. 
+
+versioned parsing / default meta-data
+---------------------------------------
+tags: feature 0.2
+
+The start of issues.txt should contain something like::
+    
+    ciss: 0.2 [...] 
+
+which would identify the format and other potential 
+configurable options.  Also, default values for things
+like "path" or other meta-data could be set in this
+first title-less section. 
+
+introduce "-f issuepath" to specify an issue file
+---------------------------------------------------
+tags: feature 0.2
+nosy: Dinu Gherman
+
+Dinu wrote me a mail that he likes to see "-f issuepath"
+to specify an issue file.  Maybe also makes sense to 
+look as an environment var like CISS_ISSUEPATH to read
+a session default. 
+
+assign issue to a pattern instead of single path?
+---------------------------------------------------
+tags: feature 0.2
+nosy: Dinu Gherman
+
+Dinu suggested to have some interactive way to determine
+which files belong to an issue.  I hope we find a 
+cross-platform and flexible way to amke this work, e.g.:
+
+    check if import is needed
+    -------------------------------
+    path-gen: root.findfiles(".py").contain("import.*MOD")
+   
+would associate the issue with all ".py" modules that
+contain the specified import regular expression.
+    
